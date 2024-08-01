@@ -1163,19 +1163,32 @@
                   class="form-control form-control-lg" data-v-f8b987b4="" value="">
                 <div class="invalid-feedback" data-v-f8b987b4="">Будь ласка, введіть дату народженя</div>
               </div>
-              <div class="text-center mt-3" data-v-f8b987b4=""><button type="submit"
+              <div class="text-center mt-3" data-v-f8b987b4="">
+
+                <script type="text/javascript" id="widget-wfp-script"
+                  src="https://secure.wayforpay.com/server/pay-widget.js?ref=button"></script>
+                <script
+                  type="text/javascript">function runWfpWdgt(url) { var wayforpay = new Wayforpay(); wayforpay.invoice(url) }</script>
+                <button type="button" onclick="runWfpWdgt('https://secure.wayforpay.com/button/bd6ed1129e606');"
                   class="purchase-button btn btn-primary btn-lg" data-v-f8b987b4=""><span class="fa-layers fa-fw"
-                    data-v-f8b987b4=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    data-v-f8b987b4="">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                       class="fa-fw fa-spin fas fa-circle-notch svg-inline--fa" data-v-f8b987b4="">
                       <path
                         d="M222.7 32.1c5 16.9-4.6 34.8-21.5 39.8C121.8 95.6 64 169.1 64 256c0 106 86 192 192 192s192-86 192-192c0-86.9-57.8-160.4-137.1-184.1-16.9-5-26.6-22.9-21.5-39.8s22.9-26.6 39.8-21.5C434.9 42.1 512 140 512 256c0 141.4-114.6 256-256 256S0 397.4 0 256C0 140 77.1 42.1 182.9 10.6c16.9-5 34.8 4.6 39.8 21.5z">
                       </path>
-                    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                       class="text-white far fa-file-pdf svg-inline--fa" data-v-f8b987b4="">
                       <path
                         d="M64 464h32v48H64c-35.3 0-64-28.7-64-64V64C0 28.7 28.7 0 64 0h165.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V288h-48V160h-80c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16v384c0 8.8 7.2 16 16 16zm112-112h32c30.9 0 56 25.1 56 56s-25.1 56-56 56h-16v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-16v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48h-32c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16v-64c0-8.8-7.2-16-16-16h-16v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16h-32v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V368z">
                       </path>
-                    </svg></span><span class="ms-1" data-v-f8b987b4="">Перевірити за 99₴</span></button></div>
+                    </svg>
+                  </span>
+                  <span class="ms-1" data-v-f8b987b4="">Перевірити за 99₴</span>
+                </button>
+
+              </div>
               <div class="text-center" data-v-f8b987b4=""><img src="payment-icons.5c743a7.svg" alt="Visa Mastercard"
                   width="100" height="60" data-v-f8b987b4=""></div>
             </form>
