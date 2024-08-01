@@ -1,0 +1,41 @@
+.card[data-v-7c5ba27e] {
+   overflow: hidden;
+}
+.card .card-body a[data-v-7c5ba27e],
+.card[data-v-7c5ba27e] {
+   transition: all 0.25s ease;
+}
+.card.active .fa-stack .fa-hexagon[data-v-7c5ba27e] {
+   transform: rotate(160deg) scale(9) !important;
+}
+.card .fa-stack[data-v-7c5ba27e] {
+   transition: all 0.25s ease;
+}
+.card .fa-stack .fa-hexagon[data-v-7c5ba27e] {
+   transition: all 0.25s ease-out;
+}
+.card:hover .fa-stack[data-v-7c5ba27e] {
+   transform: scale(1.25);
+}
+.card:hover .fa-stack .fa-hexagon[data-v-7c5ba27e] {
+   transform: rotate(45deg);
+}
+.text-brand[data-v-7c5ba27e] {
+   color: #2f3f60;
+}
+.text-brand-inverse[data-v-7c5ba27e],
+[data-bs-theme='dark'] .text-brand[data-v-7c5ba27e] {
+   color: rgba(var(--bs-warning-rgb)) !important;
+}
+[data-bs-theme='dark'] .text-brand-inverse[data-v-7c5ba27e] {
+   color: #2f3f60 !important;
+}
+.fa-stack[data-v-7c5ba27e] {
+   vertical-align: middle;
+}
+[v-cloak][data-v-7c5ba27e] {
+   display: none;
+}
+p[data-v-13828c78]:last-child {
+   margin-bottom: 0;
+}

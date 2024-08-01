@@ -1,0 +1,25 @@
+.hidden[data-v-66b27952] {
+   display: none;
+}
+.valid-error[data-v-66b27952] {
+   display: block;
+   height: 1rem;
+}
+button[data-v-0c816781] {
+   position: relative;
+}
+button span[data-v-0c816781] {
+   transition: padding 0.25s ease-in-out;
+}
+button .spinner[data-v-0c816781] {
+   transition: opacity 0.25s ease-in-out;
+   opacity: 0;
+}
+button:disabled .spinner[data-v-0c816781] {
+   position: absolute;
+   display: inline-block !important;
+   opacity: 1;
+}
+button:disabled span[data-v-0c816781] {
+   padding-left: 1.5rem;
+}

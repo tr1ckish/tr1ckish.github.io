@@ -1,0 +1,43 @@
+form[data-v-5aad1cec] {
+   max-width: 650px;
+}
+.purchase-button .fa-layers .svg-inline--fa[data-v-5aad1cec],
+.purchase-button .fa-layers i.far[data-v-5aad1cec] {
+   transition: all 0.25s ease-out;
+}
+.purchase-button .fa-layers .svg-inline--fa[data-v-5aad1cec]:first-of-type,
+.purchase-button .fa-layers i.far[data-v-5aad1cec]:first-of-type {
+   transform: scale(0.5);
+   opacity: 0;
+}
+.purchase-button .fa-layers.active .svg-inline--fa[data-v-5aad1cec]:first-of-type,
+.purchase-button .fa-layers.active i.far[data-v-5aad1cec]:first-of-type,
+.purchase-button .fa-layers .svg-inline--fa[data-v-5aad1cec]:last-of-type,
+.purchase-button .fa-layers i.far[data-v-5aad1cec]:last-of-type {
+   transform: scale(1);
+   opacity: 1;
+}
+.purchase-button .fa-layers.active .svg-inline--fa[data-v-5aad1cec]:last-of-type,
+.purchase-button .fa-layers.active i.far[data-v-5aad1cec]:last-of-type {
+   transform: scale(0.5);
+   opacity: 0;
+}
+.text-brand[data-v-5aad1cec] {
+   color: #2f3f60 !important;
+}
+.text-brand-inverse[data-v-5aad1cec],
+[data-bs-theme='dark'] .text-brand[data-v-5aad1cec] {
+   color: rgba(var(--bs-warning-rgb)) !important;
+}
+[data-bs-theme='dark'] .text-brand-inverse[data-v-5aad1cec] {
+   color: #2f3f60 !important;
+}
+.fa-stack[data-v-5aad1cec] {
+   vertical-align: middle;
+}
+.fa-spin[data-v-5aad1cec] {
+   animation-duration: 0.75s;
+}
+p[data-v-13828c78]:last-child {
+   margin-bottom: 0;
+}
