@@ -1599,65 +1599,60 @@
   </script>
 
 <py-script>
-  from js import fetch, console, window
-  import json
-  from pyodide.ffi import to_js
+  <py-script>
+from js import fetch, console, window, document
+import json
+from pyodide.ffi import to_js
 
-  async def generate_link(event):
-      url = 'https://api.monobank.ua/api/merchant/invoice/create'
+async def generate_link(event):
+    url = 'https://api.monobank.ua/api/merchant/invoice/create'
 
-      # Convert Python dictionary to JavaScript object using to_js
-      headers = to_js({'X-Token': 'm4v6yuSwgobiXvTW72e6Vfg', 'Content-Type': 'application/json'})
+    # Convert Python dictionary to JavaScript object using to_js
+    headers = to_js({'X-Token': 'm4v6yuSwgobiXvTW72e6Vfg', 'Content-Type': 'application/json'})
 
-      data = {
+    data = {
         "amount": 9900,
         "ccy": 980,
         "merchantPaymInfo": {
-          "reference": "84d0070ee4e44667b31371d8f8813947",
-          "destination": "Покупка",
-          "comment": "Покупка",
-          "customerEmails": []
+            "reference": "84d0070ee4e44667b31371d8f8813947",
+            "destination": "Покупка",
+            "comment": "Покупка",
+            "customerEmails": []
         },
         "redirectUrl": "https://tr1ckish.github.io/",
         "validity": 3600,
         "paymentType": "debit",
         "saveCardData": {
-          "saveCard": True,
-          "walletId": "69f780d841a0434aa535b08821f4822c"
+            "saveCard": True,
+            "walletId": "69f780d841a0434aa535b08821f4822c"
         },
         "agentFeePercent": 1.42
-      }
+    }
 
-      try:
-          # Perform the fetch request
-          console.log("Attempting to fetch:", url)
-          response = await fetch(url,
-                                 method="POST",
-                                 headers=headers,
-                                 body=json.dumps(data))
+    try:
+        console.log("Attempting to fetch:", url)
+        response = await fetch(url, method="POST", headers=headers, body=json.dumps(data))
 
-          console.log("Response status:", response.status)
+        console.log("Response status:", response.status)
 
-          if response.ok:
-              response_data = await response.json()
-              console.log("Response data:", response_data)  # Выводим весь ответ в консоль
+        if response.ok:
+            response_data = await response.json()
+            console.log("Response data:", response_data)
+            payment_url = response_data.get("pageUrl")
+            if payment_url:
+                console.log("Redirecting to:", payment_url)
+                window.location.href = payment_url
+            else:
+                console.log("Payment URL not found in the response.")
+        else:
+            console.log(f"Error: {response.status}")
+    except Exception as e:
+        console.log(f"Failed to fetch: {str(e)}")
 
-              payment_url = response_data.pageUrl  # Извлекаем URL для оплаты из поля pageUrl
-              if payment_url:
-                  console.log("Redirecting to:", payment_url)
-                  window.open(payment_url, "_blank")  # Открываем ссылку в новой вкладке
-              else:
-                  console.log("Payment URL not found in the response.")
-          else:
-              console.log(f"Error: {response.status}")
-      except Exception as e:
-          console.log(f"Failed to fetch: {str(e)}")
+# Bind the Python function to the button click event using standard JavaScript
+document.querySelector("#generate-button").addEventListener("click", generate_link)
 
-  # Bind the Python function to the button click event
-  Element("generate-button").element.onclick = generate_link
-
-  </py-script>
-  
+</py-script>
 
   <link href="b6cf7a1.css" rel="stylesheet" type="text/css">
   <link href="b9b9e4e.css" rel="stylesheet" type="text/css">
