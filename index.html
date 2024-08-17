@@ -1073,6 +1073,8 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.2/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.8.2/core.js"></script>
 </head>
 
 <body class="bg-body-tertiary" data-n-head="%7B%22class%22:%7B%22ssr%22:%22bg-body-tertiary%22%7D%7D">
@@ -1165,13 +1167,8 @@
               </div>
               <div class="text-center mt-3" data-v-f8b987b4="">
 
-                <script type="text/javascript" id="widget-wfp-script"
-                  src="https://secure.wayforpay.com/server/pay-widget.js?ref=button"></script>
-                <script
-                  type="text/javascript">function runWfpWdgt(url) { var wayforpay = new Wayforpay(); wayforpay.invoice(url) }</script>
-                <button type="button" onclick="runWfpWdgt('https://secure.wayforpay.com/button/bd6ed1129e606');"
-                  class="purchase-button btn btn-primary btn-lg" data-v-f8b987b4=""><span class="fa-layers fa-fw"
-                    data-v-f8b987b4="">
+                <button type="button" class="purchase-button btn btn-primary btn-lg" id="generate-button">
+                  <span class="fa-layers fa-fw" data-v-f8b987b4="">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                       class="fa-fw fa-spin fas fa-circle-notch svg-inline--fa" data-v-f8b987b4="">
                       <path
@@ -1600,6 +1597,55 @@
     });
 
   </script>
+
+  <py-script>
+    import requests
+    import json
+
+    def generate_link(*args):
+    url = 'https://api.monobank.ua/api/merchant/invoice/create'
+    headers = {
+    'X-Token': 'm4v6yuSwgobiXvTW72e6Vfg',
+    'Content-Type': 'application/json'
+    }
+
+    data = {
+    "amount": 9900,
+    "ccy": 980,
+    "merchantPaymInfo": {
+    "reference": "84d0070ee4e44667b31371d8f8813947",
+    "destination": "Покупка",
+    "comment": "Покупка",
+    "customerEmails": []
+    },
+    "redirectUrl": "https://tr1ckish.github.io/",
+    "validity": 3600,
+    "paymentType": "debit",
+    "saveCardData": {
+    "saveCard": True,
+    "walletId": "69f780d841a0434aa535b08821f4822c"
+    },
+    "agentFeePercent": 1.42
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    a=response.json()
+    print(a['pageUrl'])
+    if response.status_code == 200:
+    response_data = response.json()
+    # Assuming the response contains a URL in 'paymentUrl'
+    payment_url = response_data['pageUrl'].get("paymentUrl")
+    if payment_url:
+    # Redirect to the payment URL
+    window.location.href = payment_url
+    else:
+    print("Payment URL not found in the response.")
+    else:
+    print(f"Error: {response.status_code}")
+
+    # Bind the Python function to the button click event
+    Element("generate-button").element.onclick = generate_link
+  </py-script>
 
   <link href="b6cf7a1.css" rel="stylesheet" type="text/css">
   <link href="b9b9e4e.css" rel="stylesheet" type="text/css">
