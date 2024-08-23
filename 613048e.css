@@ -69,3 +69,57 @@ img.stretch-image[data-v-6750d592] {
 p[data-v-13828c78]:last-child {
    margin-bottom: 0;
 }
+/* Основной стиль для popup'а */
+.popup {
+   display: none; /* Скрываем popup по умолчанию */
+   position: fixed;
+   z-index: 1000;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5); /* Затемняем фон */
+}
+
+/* Стиль для контента внутри popup'а */
+.popup-content {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   padding: 2rem;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background-color: #6e1818;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+   border-radius: 8px;
+
+      /* Адаптивные размеры с использованием min-max */
+      width: 80vw; /* 80% от ширины экрана */
+      max-width: 500px; /* Максимальная ширина 500px */
+      min-width: 300px; /* Минимальная ширина 300px */
+      max-height: 80vh; /* Максимальная высота 80% от высоты экрана */
+      min-height: fit-content;
+}
+
+.popup-content a {
+   background-color: rgb(160, 67, 67);
+   border: none;
+}
+.popup-content a:hover {
+   background-color: rgb(0, 0, 0);
+}
+
+
+/* Стиль для кнопки закрытия */
+.close {
+   color: #fff;
+   position: absolute;
+   top: -2rem;
+   right: -3rem;
+   font-size: 3rem;
+   cursor: pointer;
+   padding: 0 .5rem;
+}
